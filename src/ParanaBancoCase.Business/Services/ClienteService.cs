@@ -4,11 +4,12 @@ using ParanaBancoCase.Business.Models.Validations;
 
 namespace ParanaBancoCase.Business.Services;
 
-public class ClienteService : IClienteService
+public class ClienteService : BaseService, IClienteService
 {
     private readonly IClienteRepository _clienteRepository;
 
-    public ClienteService(IClienteRepository clienteRepository)
+    public ClienteService(IClienteRepository clienteRepository,
+                          INotificador notificador) : base(notificador)
     {
         _clienteRepository = clienteRepository;
     }
@@ -22,6 +23,7 @@ public class ClienteService : IClienteService
 
         if (_clienteRepository.BuscarTodos().Result.Any(x => x.Email == cliente.Email))
         {
+            Notificar("Já existe um cliente com este e-mail.");
             return;
         }
 
@@ -35,20 +37,11 @@ public class ClienteService : IClienteService
             return;
         }
 
-        if (_clienteRepository.BuscarTodos().Result.Any(x => x.Email == cliente.Email))
-        {
-            return;
-        }
-
         await _clienteRepository.Atualizar(cliente);
     }
 
     public async Task Remover(string email)
     {
-        if (_clienteRepository.BuscarTodos().Result.All(x => x.Email != email))
-        {
-            return;
-        }
 
         await _clienteRepository.Remover(email);
     }
@@ -63,6 +56,8 @@ public class ClienteService : IClienteService
         {
             return true;
         }
+
+        Notificar(validacao);
 
         return false;
     }

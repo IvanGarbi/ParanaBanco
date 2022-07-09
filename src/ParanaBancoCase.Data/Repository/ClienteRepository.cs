@@ -26,7 +26,7 @@ public class ClienteRepository : IClienteRepository
 
     public async Task<Cliente> BuscarPorEmail(string email)
     {
-        return await DbSet.SingleAsync(x => x.Email == email);
+        return await DbSet.SingleOrDefaultAsync(x => x.Email == email);
     }
 
     public async Task<List<Cliente>> BuscarTodos()

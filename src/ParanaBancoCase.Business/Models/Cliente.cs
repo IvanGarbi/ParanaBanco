@@ -6,9 +6,9 @@ public class Cliente
     public string Nome { get; set; }
     public string Email { get; set; }
 
-    public Cliente(Guid id, string nome, string email)
+    public Cliente(string nome, string email)
     {
-        Id = id;
+        Id = Guid.NewGuid();
         Nome = nome;
         Email = email;
     }

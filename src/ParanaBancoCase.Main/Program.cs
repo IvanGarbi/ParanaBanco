@@ -1,5 +1,7 @@
 using Microsoft.EntityFrameworkCore;
 using ParanaBancoCase.Business.Interfaces;
+using ParanaBancoCase.Business.Notificacoes;
+using ParanaBancoCase.Business.Services;
 using ParanaBancoCase.Data.Context;
 using ParanaBancoCase.Data.Repository;
 
@@ -19,6 +21,8 @@ builder.Services.AddDbContext<ParanaBancoDbContext>(options =>
 
 builder.Services.AddScoped<ParanaBancoDbContext>();
 builder.Services.AddScoped<IClienteRepository, ClienteRepository>();
+builder.Services.AddScoped<INotificador, Notificador>();
+builder.Services.AddScoped<IClienteService, ClienteService>();
 
 builder.Services.AddAutoMapper(typeof(Program));
 
