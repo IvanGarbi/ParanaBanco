@@ -42,6 +42,11 @@ public class ClienteService : BaseService, IClienteService
 
     public async Task Remover(string email)
     {
+        if (_clienteRepository.BuscarTodos().Result.All(x => x.Email != email))
+        {
+            Notificar("Não existe nenhum cliente com este e-mail.");
+            return;
+        }
 
         await _clienteRepository.Remover(email);
     }
