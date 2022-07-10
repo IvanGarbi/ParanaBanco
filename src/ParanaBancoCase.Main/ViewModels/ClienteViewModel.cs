@@ -10,6 +10,6 @@ public class ClienteViewModel
 
     [Required(ErrorMessage = "O campo {0} é obrigatório.")]
     [EmailAddress(ErrorMessage = "O campo {0} é inválido.")]
-    [StringLength(100, ErrorMessage = "O campo {0} não pode passar de {1} caracteres.")]
+    [MaxLength(100, ErrorMessage = "O campo {0} não pode passar de {1} caracteres.")]
     public string Email { get; set; }
 }

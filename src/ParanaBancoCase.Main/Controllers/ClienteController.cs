@@ -7,7 +7,7 @@ using ParanaBancoCase.Main.ViewModels;
 
 namespace ParanaBancoCase.Main.Controllers
 {
-    [Route("[controller]")]
+    [Route("paranaBancoApi/[controller]/")]
     [ApiController]
     public class ClienteController : BaseController
     {
@@ -34,7 +34,7 @@ namespace ParanaBancoCase.Main.Controllers
         }
 
         // GET email
-        [HttpGet("{email}")]
+        [HttpGet("buscarCliente/{email}")]
         public async Task<ActionResult<ClienteViewModel>> BuscarPorEmail(string email)
         {
             var cliente = await _clienteRepository.BuscarPorEmail(email);
@@ -63,7 +63,7 @@ namespace ParanaBancoCase.Main.Controllers
         }
 
         // PUT
-        [HttpPut("{email}")]
+        [HttpPut("atualizarCliente/{email}")]
         public async Task<ActionResult<ClienteViewModel>> Atualizar(string email, ClienteViewModel clienteViewModel)
         {
             var cliente = await _clienteRepository.BuscarPorEmail(email);

@@ -44,6 +44,6 @@ public class ClienteTests
         // Assert
         Assert.False(result.IsValid);
         Assert.NotEmpty(result.Errors);
-        Assert.Equal(3, result.Errors.Count);
+        Assert.Equal(4, result.Errors.Count);
     }
 }

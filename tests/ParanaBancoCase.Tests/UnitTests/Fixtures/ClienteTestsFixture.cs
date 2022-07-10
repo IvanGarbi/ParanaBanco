@@ -21,7 +21,7 @@ public class ClienteTestsFixture : IDisposable
     {
         var cliente = new Business.Models.Cliente(
             "",
-            "joao_silvagmail.com");
+            "");
 
         return cliente;
     }

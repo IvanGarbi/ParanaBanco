@@ -1,4 +1,5 @@
 using Microsoft.EntityFrameworkCore;
+using Microsoft.OpenApi.Models;
 using ParanaBancoCase.Business.Interfaces;
 using ParanaBancoCase.Business.Notificacoes;
 using ParanaBancoCase.Business.Services;
@@ -12,7 +13,16 @@ var builder = WebApplication.CreateBuilder(args);
 builder.Services.AddControllers();
 // Learn more about configuring Swagger/OpenAPI at https://aka.ms/aspnetcore/swashbuckle
 builder.Services.AddEndpointsApiExplorer();
-builder.Services.AddSwaggerGen();
+builder.Services.AddSwaggerGen(config =>
+{
+    config.SwaggerDoc("v1", new OpenApiInfo
+    {
+        Title = "API - Paraná Banco",
+        Version = "Versão 1",
+        Description = "Esta API faz parte do Case do Paraná Banco",
+        Contact = new OpenApiContact() { Name = "Ivan Assumpção", Email = "ivan_garbi@hotmail.com" }
+    });
+});
 
 builder.Services.AddDbContext<ParanaBancoDbContext>(options =>
 {
