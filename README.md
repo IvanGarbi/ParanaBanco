@@ -15,7 +15,7 @@ Exclusão de cadastro de cliente.
 <br>
 Busca de todos os clientes registrados no banco de dados.
 <br>
-Testes de Unidade com xUnit.
+Testes de Unidade com xUnit.NET
 
 # Tecnologias
 * .NET 6
@@ -24,4 +24,4 @@ Testes de Unidade com xUnit.
 * Moq
 * SQL Server
 * AutoMapper
-* *xUnit
+* xUnit.NET
