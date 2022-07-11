@@ -21,3 +21,4 @@ Busca de todos os clientes registrados no banco de dados.
 * FluentValidation
 * Moq
 * SQL Server
+* AutoMapper
