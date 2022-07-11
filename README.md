@@ -14,6 +14,8 @@ Atualização de cadastro de nome e e-mail.
 Exclusão de cadastro de cliente.
 <br>
 Busca de todos os clientes registrados no banco de dados.
+<br>
+Testes de Unidade com xUnit.
 
 # Tecnologias
 * .NET 6
@@ -22,3 +24,4 @@ Busca de todos os clientes registrados no banco de dados.
 * Moq
 * SQL Server
 * AutoMapper
+* *xUnit
